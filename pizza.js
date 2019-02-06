@@ -1,28 +1,35 @@
 // Write your Pizza Builder JavaScript in this file.
 
 $('.btn-pepperonni').on('click', function(e) {
-  $('.green-pepper').toggle(); //you can list several class names 
+  $('.green-pepper').toggle();  
   e.preventDefault();
 
 });
 
 $('.btn-mushrooms').on('click', function(e) {
-  $('.mushroom').toggle(); //you can list several class names 
+  $('.mushroom').toggle(); 
   e.preventDefault();
 });
 
 $('.btn-green-peppers').on('click', function(e) {
-  $('.pep').toggle(); //you can list several class names 
+  $('.pep').toggle(); 
   e.preventDefault();
 });
 
 $('.btn-sauce').on('click', function(e) {
-  $('.sauce').toggle(); //you can list several class names 
+  $('.sauce').toggle(); 
   e.preventDefault();
 });
 
-
+//Add remove gluten free crust.
+$('#crust').removeClass('crust-gluten-free');
 $('.btn-crust').on('click', function(e) {
-  $('.crust-gluten-free').toggle(); //you can list several class names 
-  e.preventDefault();
-});
+
+ e.preventDefault();
+ if ($( "#crust" ).hasClass('crust-gluten-free')) {
+  $( "#crust" ).removeClass('crust-gluten-free');
+ } else {
+  $( "#crust" ).addClass('crust-gluten-free'); 
+ }
+  });
+
