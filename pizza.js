@@ -9,11 +9,16 @@ $('.btn-pepperonni').on('click', function(e) {
   e.preventDefault();
   if (!$('#pepperoni').hasClass('active')) {
     $('#pepperoni').addClass('active');  
+    $('.pepPr').show();
     $('.pep').css('display', 'block');
 } else {
-  $('#pepperoni').removeClass('active');
-  $('.pep').css('display', 'none');
+    $('#pepperoni').removeClass('active');
+    $('.pep').css('display', 'none');
+    $('.pepPr').hide();
    }
+
+  //  if ($('#white-sauce').css('display') == 'block'){ 
+  //   $('.whitePr').text('$3 white sauce'); 
 // $('#pepperoni').toggleClass('active');
     //  $('.green-pepper').toggleClass(); 
     //  $('.pep').toggle(); 
