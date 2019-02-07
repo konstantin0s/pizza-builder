@@ -16,12 +16,6 @@ $('.btn-pepperonni').on('click', function(e) {
     $('.pep').css('display', 'none');
     $('.pepPr').hide();
    }
-
-  //  if ($('#white-sauce').css('display') == 'block'){ 
-  //   $('.whitePr').text('$3 white sauce'); 
-// $('#pepperoni').toggleClass('active');
-    //  $('.green-pepper').toggleClass(); 
-    //  $('.pep').toggle(); 
 });
 
 
@@ -29,13 +23,15 @@ $('.mushroom').each(function(i){
   $(this).fadeOut(0);
 });
 $('.btn-mushrooms').on('click', function(e) {
-  if ($('#mushrooms' ).hasClass('active')) {
-    $( '#mushrooms' ).removeClass('active');
+  if (!$('#mushrooms' ).hasClass('active')) {
+    $( '#mushrooms' ).addClass('active');
+    $('.mushPr').show();
+    $('.mushroom').show();
    } else {
-    $( '#mushrooms' ).addClass('active'); 
+    $( '#mushrooms' ).removeClass('active');
+    $('.mushPr').hide(); 
+    $('.mushroom').hide();
    }
-
-  $('.mushroom').toggle(); 
   e.preventDefault();
 });
 
@@ -105,7 +101,7 @@ $('.btn-crust').on('click', function(e) {
     // $('#pepperoni').toggleClass('active');
     $('.pep').css('display', 'block');
     $('#crust').removeClass('crust-gluten-free');
-    $('#mushrooms').removeClass('active');
+    $('.mushroom').show();
     $('#green-pepper').removeClass('active');
     $('#sauce').removeClass('active');
     $('#gluten').removeClass('active');
