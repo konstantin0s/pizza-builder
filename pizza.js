@@ -47,6 +47,27 @@ $('.pep').each(function(i){
 
 
 $('.btn-sauce').on('click', function(e) {
+  if ($('#white-sauce').css('display') == 'block'){ 
+    $('.whitePr').text('$3 white sauce'); 
+ }  
+   if ($('#white-sauce').css('display') == 'block') {
+  $('.whitePr').hide();
+ } if ($('#white-sauce').css('display') == 'none') {
+  $('.whitePr').show();
+ }
+ 
+//   else { 
+//   $('.whitePr').hide(); 
+//  }
+
+//   if ($('.sauce').css('display') == "block" )  { 
+//     /*success*/ 
+//     $('.whitePr').text('$3 white sauce');
+// } 
+// else { 
+//     /*does not have*/ 
+// }
+
   if ($('#sauce' ).hasClass('active')) {
     $( '#sauce' ).removeClass('active');
    } else {
@@ -82,6 +103,7 @@ $('.btn-crust').on('click', function(e) {
     $('#sauce').removeClass('active');
     $('#gluten').removeClass('active');
     $('.sauce').css('display', 'none');
+    $('.whitePr').hide();
   });
 
  
