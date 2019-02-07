@@ -4,14 +4,19 @@ $('.green-pepper').each(function(i){
 });
 
 
+
 $('.btn-pepperonni').on('click', function(e) {
   e.preventDefault();
-  if ($('#pepperoni').hasClass('active')) {
-    $('#pepperoni').removeClass('active');  
+  if (!$('#pepperoni').hasClass('active')) {
+    $('#pepperoni').addClass('active');  
+    $('.pep').css('display', 'block');
 } else {
-    ($('#pepperoni').addClass('active'));
+  $('#pepperoni').removeClass('active');
+  $('.pep').css('display', 'none');
    }
-     $('.green-pepper').toggle(); 
+// $('#pepperoni').toggleClass('active');
+    //  $('.green-pepper').toggleClass(); 
+    //  $('.pep').toggle(); 
 });
 
 
@@ -41,7 +46,8 @@ $('.pep').each(function(i){
        } else {
         $( '#green-pepper' ).addClass('active'); 
        }
-     $('.pep').toggle(); 
+     $('.green-pepper').toggle(); 
+
   e.preventDefault();
 });
 
@@ -82,8 +88,6 @@ $('.btn-crust').on('click', function(e) {
 
  if ($('#gluten' ).hasClass('active')) { 
   $('.glutenPr').css('display','block');
-  // $('.glutenPr').show();
-    //  $('.glutenPr').text('$5 gluten-free crust'); 
 }  else {
   $('.glutenPr').hide();
 
@@ -93,7 +97,8 @@ $('.btn-crust').on('click', function(e) {
 
   //Remove active class from all buttons
   $( window ).load(function() {
-    $('#pepperoni').removeClass('active');
+    // $('#pepperoni').toggleClass('active');
+    $('.pep').css('display', 'block');
     $('#crust').removeClass('crust-gluten-free');
     $('#mushrooms').removeClass('active');
     $('#green-pepper').removeClass('active');
