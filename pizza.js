@@ -44,10 +44,15 @@ $('.pep').each(function(i){
   $('.btn-green-peppers').on('click', function(e) {
       if ($('#green-pepper' ).hasClass('active')) {
         $( '#green-pepper' ).removeClass('active');
+        $('.greenPr').hide();
+        $('.green-pepper').hide();
+
        } else {
         $( '#green-pepper' ).addClass('active'); 
+        $('.greenPr').show();
+        $('.green-pepper').show();
        }
-     $('.green-pepper').toggle(); 
+    //  $('.green-pepper').toggle(); 
 
   e.preventDefault();
 });
@@ -102,7 +107,8 @@ $('.btn-crust').on('click', function(e) {
     $('.pep').css('display', 'block');
     $('#crust').removeClass('crust-gluten-free');
     $('.mushroom').show();
-    $('#green-pepper').removeClass('active');
+    $('.green-pepper').show();
+    // $('#green-pepper').removeClass('active');
     $('#sauce').removeClass('active');
     $('#gluten').removeClass('active');
     $('.sauce').css('display', 'none');
