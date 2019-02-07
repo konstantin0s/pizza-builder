@@ -55,19 +55,6 @@ $('.btn-sauce').on('click', function(e) {
  } if ($('#white-sauce').css('display') == 'none') {
   $('.whitePr').show();
  }
- 
-//   else { 
-//   $('.whitePr').hide(); 
-//  }
-
-//   if ($('.sauce').css('display') == "block" )  { 
-//     /*success*/ 
-//     $('.whitePr').text('$3 white sauce');
-// } 
-// else { 
-//     /*does not have*/ 
-// }
-
   if ($('#sauce' ).hasClass('active')) {
     $( '#sauce' ).removeClass('active');
    } else {
@@ -80,7 +67,7 @@ $('.btn-sauce').on('click', function(e) {
 //Add remove gluten free crust.
 
 $('.btn-crust').on('click', function(e) {
-   e.preventDefault();
+  e.preventDefault();
  if ($('#crust' ).hasClass('crust-gluten-free')) {
   $( '#crust' ).removeClass('crust-gluten-free');
  } else {
@@ -92,6 +79,16 @@ $('.btn-crust').on('click', function(e) {
  } else {
   $( '#gluten' ).addClass('active'); 
  }
+
+ if ($('#gluten' ).hasClass('active')) { 
+  $('.glutenPr').css('display','block');
+  // $('.glutenPr').show();
+    //  $('.glutenPr').text('$5 gluten-free crust'); 
+}  else {
+  $('.glutenPr').hide();
+
+}
+
   });
 
   //Remove active class from all buttons
@@ -104,6 +101,7 @@ $('.btn-crust').on('click', function(e) {
     $('#gluten').removeClass('active');
     $('.sauce').css('display', 'none');
     $('.whitePr').hide();
+    $('.glutenPr').hide();
   });
 
  
