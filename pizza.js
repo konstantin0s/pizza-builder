@@ -1,4 +1,9 @@
 // Write your Pizza Builder JavaScript in this file.
+var currentValue = 21;
+//  currentValue = parseInt($("#total").text(13),10);
+// console.log(currentValue);
+
+
 $('.green-pepper').each(function(i){
   $(this).fadeOut(0);
 });
@@ -9,12 +14,20 @@ $('.btn-pepperonni').on('click', function(e) {
   e.preventDefault();
   if (!$('#pepperoni').hasClass('active')) {
     $('#pepperoni').addClass('active');  
+    //update price when active.
+    currentValue += 1;
+    $("#total").text(currentValue);
     $('.pepPr').show();
     $('.pep').css('display', 'block');
 } else {
     $('#pepperoni').removeClass('active');
+    currentValue -= 1;
+    $("#total").text(currentValue);
     $('.pep').css('display', 'none');
     $('.pepPr').hide();
+    // newValue = currentValue;
+    // $("#total").text(newValue);
+    // $('#total').hide();
    }
 });
 
@@ -27,10 +40,14 @@ $('.btn-mushrooms').on('click', function(e) {
     $( '#mushrooms' ).addClass('active');
     $('.mushPr').show();
     $('.mushroom').show();
+    currentValue += 1;
+    $("#total").text(currentValue);
    } else {
     $( '#mushrooms' ).removeClass('active');
     $('.mushPr').hide(); 
     $('.mushroom').hide();
+  currentValue -= 1;
+    $("#total").text(currentValue);
    }
   e.preventDefault();
 });
@@ -46,9 +63,12 @@ $('.pep').each(function(i){
         $( '#green-pepper' ).removeClass('active');
         $('.greenPr').hide();
         $('.green-pepper').hide();
-
+        currentValue -= 1;
+        $("#total").text(currentValue);
        } else {
         $( '#green-pepper' ).addClass('active'); 
+        currentValue += 1;
+        $("#total").text(currentValue);
         $('.greenPr').show();
         $('.green-pepper').show();
        }
@@ -57,7 +77,8 @@ $('.pep').each(function(i){
   e.preventDefault();
 });
 
-
+currentValue -=3;
+$("#total").text(currentValue);
 $('.btn-sauce').on('click', function(e) {
   if ($('#white-sauce').css('display') == 'block'){ 
     $('.whitePr').text('$3 white sauce'); 
@@ -71,13 +92,16 @@ $('.btn-sauce').on('click', function(e) {
     $( '#sauce' ).removeClass('active');
    } else {
     $( '#sauce' ).addClass('active'); 
+    currentValue += 3;
+    $("#total").text(currentValue);
    }
   $('.sauce').toggle(); 
   e.preventDefault();
 });
 
 //Add remove gluten free crust.
-
+currentValue -= 5;
+$("#total").text(currentValue);
 $('.btn-crust').on('click', function(e) {
   e.preventDefault();
  if ($('#crust' ).hasClass('crust-gluten-free')) {
@@ -90,20 +114,19 @@ $('.btn-crust').on('click', function(e) {
   $( '#gluten' ).removeClass('active');
  } else {
   $( '#gluten' ).addClass('active'); 
+  currentValue += 5;
+  $("#total").text(currentValue);
  }
 
  if ($('#gluten' ).hasClass('active')) { 
   $('.glutenPr').css('display','block');
 }  else {
   $('.glutenPr').hide();
-
 }
-
   });
 
   //Remove active class from all buttons
   $( window ).load(function() {
-    // $('#pepperoni').toggleClass('active');
     $('.pep').css('display', 'block');
     $('#crust').removeClass('crust-gluten-free');
     $('.mushroom').show();
@@ -116,6 +139,6 @@ $('.btn-crust').on('click', function(e) {
     $('.glutenPr').hide();
   });
 
- 
 
-
+$('btn-crust').trigger('click');
+$('btn-sauce').trigger('click');
